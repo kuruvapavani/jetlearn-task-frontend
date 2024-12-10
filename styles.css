@@ -37,6 +37,7 @@ h1 {
   text-align: center;
   font-size: 2rem;
   margin-bottom: 20px;
+  color: var(--hero);
 }
 
 .grid-container {
@@ -64,7 +65,7 @@ h1 {
 
 .post-card h3 {
   font-size: 1.5rem;
-  color: #333;
+  color: var(--hero);
   margin-bottom: 10px;
 }
 
@@ -84,4 +85,56 @@ h1 {
 
 .read-more:hover {
   text-decoration: underline;
+}
+
+
+
+/* Single Post Page */
+
+#single-post-container {
+  margin: 40px auto;
+  padding: 20px;
+  max-width: 800px;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* Post Title */
+#single-post-title {
+  font-size: 2.5rem;
+  color: var(--hero);
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Post Content */
+#single-post-content {
+  font-size: 1.2rem;
+  color: #444;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+
+
+/* Back to All Posts Button */
+#back-button {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 10px 20px;
+  background-color: var(--hero);
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+#back-button:hover {
+  background-color: #008c95;
 }
