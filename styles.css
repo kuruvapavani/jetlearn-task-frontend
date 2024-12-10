@@ -1,34 +1,44 @@
 :root {
-  --hero: #00ADB5;
+  --hero: #00adb5;
   --white: #ffffff;
 }
-body{
-  overflow:hidden;
-  padding:0;
-  margin:0;
+body {
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
 }
-.navbar{
+.navbar {
   background-color: var(--hero);
-  display:flex;
-  justify-content : space-between;
-  padding:0px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 40px;
+  position: relative; /* For dropdown positioning */
 }
 
-.nav-items{
-  display : flex;
-  justify-content:space-around;
-  align-items:center;
+.nav-items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: max-height 0.3s ease-in-out; /* Smooth toggle animation */
 }
-.nav-item{
-  margin-left:30px;
-  font-weight:600;
-  font-size:20px;
+
+.nav-item {
+  margin-left: 30px;
+  font-weight: 600;
+  font-size: 20px;
   color: var(--white);
-  text-decoration:none;
+  text-decoration: none;
 }
 
-/* posts grid */
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: var(--white);
+  cursor: pointer;
+}
 
+/* Posts Grid */
 #posts-container {
   margin: 20px;
 }
@@ -87,10 +97,7 @@ h1 {
   text-decoration: underline;
 }
 
-
-
 /* Single Post Page */
-
 #single-post-container {
   margin: 40px auto;
   padding: 20px;
@@ -118,8 +125,6 @@ h1 {
   text-align: justify;
 }
 
-
-
 /* Back to All Posts Button */
 #back-button {
   display: inline-block;
@@ -137,4 +142,96 @@ h1 {
 
 #back-button:hover {
   background-color: #008c95;
+}
+
+/* Media Queries for Responsive Design */
+
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    font-size: 2rem;
+    color: var(--white);
+    cursor: pointer;
+  }
+
+  .nav-items {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--hero);
+    flex-direction: column;
+    max-height: 0; /* Initially hidden */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: max-height 0.4s ease, padding 0.3s ease;
+  }
+
+  .nav-items.open {
+    max-height: 300px;
+    padding: 10px 0;
+  }
+
+  .nav-item {
+    margin: 10px 0; 
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .navbar {
+    padding: 10px 20px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 10px;
+  }
+
+  .nav-item {
+    font-size: 16px; 
+    padding: 8px 0; 
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  #posts-container {
+    margin: 10px;
+  }
+
+  .grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); 
+    gap: 15px; 
+  }
+
+  .post-card {
+    padding: 15px; 
+    min-height: 250px; 
+  }
+
+  .post-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .post-card p {
+    font-size: 0.9rem; 
+  }
+
+  #single-post-title {
+    font-size: 1.8rem;
+  }
+
+  #single-post-content {
+    font-size: 1rem; 
+  }
+
+  #back-button {
+    font-size: 0.9rem; 
+    padding: 8px 15px;
+  }
 }
